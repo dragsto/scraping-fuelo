@@ -14,7 +14,7 @@ Instructions
 
 - Once the webpage has loaded with your selected country and gas type, copy the URL from your browser.
 
-- Open the Python script gas_price_scraper.py from this repository.
+- Open the Python script Fuelo_net.ipynb from this repository.
 
 - Locate the line:
 
