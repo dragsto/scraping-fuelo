@@ -25,3 +25,28 @@ Instructions
 - Save your changes and run the script. 
 
 The script will generate a CSV file called prices.csv within the Google Colab environment. This CSV file contains two columns: Date and Avg Price, representing the date and the average price of gas respectively.
+
+```python
+import re
+import json, csv
+import requests
+from datetime import datetime
+
+r = requests.get('https://de.fuelo.net/fuel/type/lpg/3years?lang=en') # <--link goes here
+
+regex_pattern = re.compile(r'var data =.*?"values":(.*?)}', re.MULTILINE | re.DOTALL)
+regex_search = regex_pattern.search(r.text)
+
+json_object = json.loads(regex_search[1])
+
+for j in json_object:
+    j[0] = datetime.fromtimestamp(j[0]/1000.0).strftime("%Y-%m-%d")
+
+headers = ['Date', 'Avg Price']
+
+with open('prices.csv', 'w', encoding='UTF8') as file:
+    writer = csv.writer(file)
+    writer.writerow(headers)
+    for j in json_object:
+        writer.writerow(j)
+```
