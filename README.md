@@ -24,4 +24,4 @@ Instructions
 
 - Save your changes and run the script. 
 
-#### The script will generate a CSV file called prices.csv in the same directory where the script resides. This CSV file contains two columns: Date and Avg Price, representing the date and average price of gas respectively.
+The script will generate a CSV file called prices.csv within the Google Colab environment. This CSV file contains two columns: Date and Avg Price, representing the date and the average price of gas respectively.
